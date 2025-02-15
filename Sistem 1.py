@@ -92,3 +92,12 @@ def update_buku():
             i['Status'] = validasi_status("Masukkan status baru: ")
             return
     print("Data tidak ditemukan.")
+
+# Filter data buku
+def filter_buku():
+    buku_filter = []
+    status_filter = validasi_status('Masukkan status buku yang ingin difilter: ')
+    for i in buku:
+        if i['Status'] == status_filter:
+            buku_filter.append(i)
+    print(tabulate(buku_filter, headers='keys', tablefmt='fancy_grid'))
