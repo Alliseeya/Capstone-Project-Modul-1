@@ -152,3 +152,17 @@ def gabung_buku():
 
 def lihat_buku_peminjaman():
     print(tabulate(buku_peminjaman, headers='keys', tablefmt='fancy_grid'))
+
+def pengembalian_buku():
+    id_buku = input("Masukkan ID buku: ")
+    for i in buku:
+        if i['ID'] == id_buku:
+            if i['Status'] == 'Dipinjamkan':
+                i['Stok'] += 1  # Tambahkan stok buku
+                i['Status'] = 'Dikembalikan'  # Ubah status buku
+                buku_peminjaman.append(i.copy())
+                print(tabulate(buku_peminjaman, headers='keys', tablefmt='fancy_grid'))  
+                print("Buku berhasil dikembalikan!")
+            else:
+                print("Maaf, buku tidak sedang dipinjam")
+            return  # Keluar dari fungsi setelah menemukan buku
