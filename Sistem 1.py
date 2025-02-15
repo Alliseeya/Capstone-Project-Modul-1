@@ -130,3 +130,25 @@ def restore_buku():
     else:
         print("Data tidak ditemukan.")
         return restore_buku()
+
+# Peminjaman buku dan gabung buku
+def permintaan_peminjaman():
+    id_buku = input("Masukkan ID buku: ")
+    for i in buku:
+        if i['ID'] == id_buku:
+            if i['Stok'] > 0:
+                i['Stok'] -= 1  # Kurangi stok buku
+                i['Status'] = 'Dipinjamkan'  # Ubah status buku
+                buku_peminjaman.append(i.copy())  # Simpan buku yang dipinjam
+                print("Buku berhasil dipinjam!")
+            else:
+                print("Maaf, stok buku habis")
+            return  # Keluar dari fungsi setelah menemukan buku
+
+def gabung_buku():
+    global buku
+    buku.extend(buku_peminjaman)
+    return
+
+def lihat_buku_peminjaman():
+    print(tabulate(buku_peminjaman, headers='keys', tablefmt='fancy_grid'))
