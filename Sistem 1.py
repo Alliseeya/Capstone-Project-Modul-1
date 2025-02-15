@@ -166,3 +166,64 @@ def pengembalian_buku():
             else:
                 print("Maaf, buku tidak sedang dipinjam")
             return  # Keluar dari fungsi setelah menemukan buku
+
+# Fungsi main
+def main():
+    while True:
+        print("Menu:")
+        print("1. Lihat data buku")
+        print("2. Tambah buku")
+        print("3. Data peminjaman dan gabung data buku")
+        print("4. Data pengembalian Data Buku")
+        print("5. Update status buku")
+        print("6. Hapus data buku")
+        print("7. Filter data buku")
+        print("8. Restore data buku")
+        print("9. Keluar")
+        pilihan = input("Pilih menu: ")
+        if pilihan == "1":
+            read_buku()
+        elif pilihan == "2":
+            create_buku()
+        elif pilihan == "3":
+            permintaan_peminjaman()
+            gabung_buku()
+            lihat_buku_peminjaman()
+        elif pilihan == "4":
+            pengembalian_buku()
+        elif pilihan == "5":
+            update_buku()
+        elif pilihan == "6":
+            delete_buku()
+        elif pilihan == "7":
+            filter_buku()
+        elif pilihan == "8":
+            restore_buku()
+        elif pilihan == "9":
+            print("Terima kasih telah menggunakan program ini.")
+            break
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.")
+
+# Fungsi Pengunjung
+def pengunjung():
+    while True:
+        print("Menu Pengunjung:")
+        print("1. Lihat data buku")
+        print("2. Filter data buku")
+        print("3. Pengajuan peminjaman buku")
+        print("4. Keluar")
+        pilihan = input("Pilih menu: ")
+        if pilihan == "1":
+            read_buku()
+        elif pilihan == "2":
+            filter_buku()
+        elif pilihan == "3":
+            permintaan_peminjaman()
+            gabung_buku()
+            lihat_buku_peminjaman()
+        elif pilihan == "4":
+            print("Terima kasih telah menggunakan program ini.")
+            break
+
+login()
