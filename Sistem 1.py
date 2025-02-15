@@ -116,3 +116,17 @@ def delete_buku():
     else:
         print("Data tidak ditemukan.")
         return
+
+# Restore data buku
+def restore_buku():
+    id = input("Masukkan ID buku yang ingin dikembalikan: ")
+    for i in buku_hapus:
+        if i['ID'] == (id):
+            buku.append(i)
+            buku_hapus.remove(i)
+            print("Data berhasil dikembalikan.")
+            buku.sort(key=lambda x: x['ID'])
+            return read_buku()
+    else:
+        print("Data tidak ditemukan.")
+        return restore_buku()
