@@ -101,3 +101,18 @@ def filter_buku():
         if i['Status'] == status_filter:
             buku_filter.append(i)
     print(tabulate(buku_filter, headers='keys', tablefmt='fancy_grid'))
+
+# Delete data buku
+buku_hapus = []
+
+def delete_buku():
+    id = input("Masukkan ID buku yang ingin dihapus: ")
+    for i in buku:
+        if i['ID'] == (id):
+            buku_hapus.append(i)
+            buku.remove(i)
+            print("Data berhasil dihapus.")
+            return read_buku()
+    else:
+        print("Data tidak ditemukan.")
+        return
