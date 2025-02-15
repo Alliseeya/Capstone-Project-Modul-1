@@ -79,3 +79,16 @@ def create_buku():
     stok = int(input('Masukkan stok: '))
     buku.append({"ID": generate_book_id(judul, tahun_terbit), "Judul": judul, "Pengarang": pengarang, "Tahun terbit": tahun_terbit, "Status": status, 'Stok': stok})
     return read_buku()
+
+# Update data buku
+def update_buku():
+    read_buku()
+    Id = input("Masukkan ID buku yang ingin diupdate: ")
+    for i in buku:
+        if i['ID'] == Id:
+            i['Judul'] = validasi_judul("Masukkan judul buku baru: ")
+            i['Pengarang'] = validasi_pengarang("Masukkan nama pengarang baru: ")
+            i['Tahun terbit'] = validasi_tahun_terbit("Masukkan tahun terbit baru: ")
+            i['Status'] = validasi_status("Masukkan status baru: ")
+            return
+    print("Data tidak ditemukan.")
