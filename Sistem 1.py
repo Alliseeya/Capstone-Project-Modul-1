@@ -69,3 +69,13 @@ def validasi_status(prompt):
             return inputan
         else:
             print("Input tidak valid. Silakan coba lagi.")
+
+# Creat data buku
+def create_buku():
+    judul = validasi_judul("Masukkan judul buku: ")
+    pengarang = validasi_pengarang('Masukkan nama pengarang: ')
+    tahun_terbit = validasi_tahun_terbit('Masukkan tahun terbit: ')
+    status = validasi_status('Masukkan status: ')
+    stok = int(input('Masukkan stok: '))
+    buku.append({"ID": generate_book_id(judul, tahun_terbit), "Judul": judul, "Pengarang": pengarang, "Tahun terbit": tahun_terbit, "Status": status, 'Stok': stok})
+    return read_buku()
